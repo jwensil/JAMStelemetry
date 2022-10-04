@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Marker Index</h1>
+
+<div id="markers">
+  <% @markers.each do |marker| %>
+    <%= render marker %>
+    <p>
+      <%= link_to "Show this marker", marker %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New marker", new_marker_path %>

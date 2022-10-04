@@ -1,0 +1,21 @@
+<p style="color: green"></p>
+
+<div class="jumbotron">
+  <h1 class="display-4"><%= @marker.marker %></h1>
+  <br/><p class="lead">RDK Platform: <%= @marker.platform %></p>
+  <hr class="my-4">
+  <p>Marker Polling Frequency: <%= @marker.frequency %><br/><br/>
+  Live Metrics (needs ELK integration): <%= @marker.livemetrics %><br/><br/>
+  Customer Impact: <%= @marker.customerimpact %><br/><br/>
+  Marker Description: <%= @marker.description %><br/><br/></p>
+
+  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more (tbd)</a>
+</div>
+
+
+<div>
+  <%= link_to "Edit this marker", edit_marker_path(@marker) %> |
+  <%= link_to "Back to marker index", markers_path %>
+
+  <%= button_to "Delete this marker", @marker, method: :delete %>
+</div>

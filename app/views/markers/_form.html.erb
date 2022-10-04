@@ -1,0 +1,48 @@
+<%= form_with(model: marker) do |form| %>
+  <% if marker.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(marker.errors.count, "error") %> prohibited this marker from being saved:</h2>
+
+      <ul>
+        <% marker.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<br/>
+  <div class="field form-group">
+    <% form.label :marker, style: "display: block" %>
+    <%= form.text_field :marker, class:"form-control", placeholder:"RDK Marker..." %>
+  </div>
+
+  <div class="field form-group">
+    <% form.label :platform, style: "display: block" %>
+    <%= form.text_field :platform, class:"form-control", placeholder:"RDK Platform..."  %>
+  </div>
+
+  <div class="field form-group">
+    <% form.label :frequency, style: "display: block" %>
+    <%= form.text_field :frequency, class:"form-control", placeholder:"RDK Polling Frequency..."  %>
+  </div>
+
+  <div class="field form-group">
+    <% form.label :livemetrics, style: "display: block" %>
+    <%= form.text_field :livemetrics, class:"form-control", placeholder:"Link to live metrics (Field TBD)..."  %>
+  </div>
+
+  <div class="field form-group">
+    <% form.label :customerimpact, style: "display: block" %>
+    <%= form.text_field :customerimpact, class:"form-control", placeholder:"Customer Impact..."  %>
+  </div>
+
+  <div class="field form-group">
+    <% form.label :description, style: "display: block" %>
+    <%= form.text_field :description, class:"form-control", placeholder:"Marker Description..."  %>
+  </div>
+<br/>
+  <div>
+    <%= form.submit class:'btn btn-secondary' %>
+  </div>
+<% end %>
+ 
