@@ -19,6 +19,11 @@ class MarkersController < ApplicationController
   def edit
   end
 
+  def search
+    @marker = Marker.where("marker LIKE ?","%" + params[:q] + "%")
+  end
+
+
   # POST /markers or /markers.json
   def create
     @marker = Marker.new(marker_params)

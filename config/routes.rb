@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :markers
+  get 'search',to:"markers#search"
   get 'home/about'
   get 'home/index'
   get 'home/index2'
