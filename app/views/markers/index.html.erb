@@ -2,15 +2,20 @@
 
 
 
+
 <table class="table table-striped table-bordered table-hover">
   <thead class="thead-dark">
     <tr>
-      <th>Marker</th>
-      <th>Platform</th>
-      <th>Frequency</th>
+      <th><%= sortable "marker", "Marker" %></th>
+      <th><%= sortable "platform", "Platform" %></th>
+      <th><%= sortable "frequency", "Frequency" %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
+
+
+
+
 
   <tbody>
     <% @markers.each do |marker| %>

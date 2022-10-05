@@ -1,10 +1,14 @@
 class MarkersController < ApplicationController
   before_action :set_marker, only: %i[ show edit update destroy ]
 
+helper_method :sort_column, :sort_column
+
   # GET /markers or /markers.json
   def index
-    @markers = Marker.all
+    @markers = Marker.order(sort_column + " " + sort_direction)
   end
+
+
 
   # GET /markers/1 or /markers/1.json
   def show
@@ -72,4 +76,14 @@ class MarkersController < ApplicationController
     def marker_params
       params.require(:marker).permit(:marker, :platform, :frequency, :livemetrics, :customerimpact, :description)
     end
+
+    private
+    def sort_column
+      Marker.column_names.include?(params[:sort]) ? params[:sort] : "markers"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
+
 end
