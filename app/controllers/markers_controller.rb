@@ -5,7 +5,7 @@ helper_method :sort_column, :sort_column
 
   # GET /markers or /markers.json
   def index
-    @markers = Marker.order(sort_column + " " + sort_direction)
+    @markers = Marker.order(sort_column + " " + sort_direction).paginate(:per_page => 2, :page => params[:page])
   end
 
 
